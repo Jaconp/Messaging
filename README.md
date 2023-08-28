@@ -11,4 +11,5 @@ Here are the list of commands provided by the plugin.
   Replies to the last person you privately messaged.
   Aliases: None
   Usage: /reply <message you want to send>
-Also, you can add custom hex colours to your message with the commands above. For example, the message "#0000FFHello" will be converted to "Hello".
+  
+  Also, you can add custom hex colours to your message with the commands above. For example, the message "#0000FFHello" will be converted to "Hello".
