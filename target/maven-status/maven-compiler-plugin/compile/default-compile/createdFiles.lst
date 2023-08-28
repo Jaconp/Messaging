@@ -1,0 +1,4 @@
+com\stickms\messaging\MessageCommand.class
+com\stickms\messaging\CommandManager.class
+com\stickms\messaging\ReplyCommand.class
+com\stickms\messaging\Messaging.class
