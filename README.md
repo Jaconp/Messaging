@@ -3,7 +3,9 @@ A spigot plugin that allows players to privately message one another.
 
 Here are the list of commands provided by the plugin.
 
+
 /message
+
   Lets you send a private message to someone.
   
   Aliases: /msg, /dm, /pm
