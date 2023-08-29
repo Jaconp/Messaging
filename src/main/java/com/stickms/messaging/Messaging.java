@@ -1,30 +1,33 @@
 package com.stickms.messaging;
 
+import com.stickms.messaging.commands.BroadcastCommand;
+import com.stickms.messaging.commands.MessageCommand;
+import com.stickms.messaging.commands.ReplyCommand;
+import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public final class Messaging extends JavaPlugin {
+public final class Messaging extends JavaPlugin implements Listener {
     private HashMap<UUID, UUID> recentMessages;
 
     @Override
     public void onEnable() {
         recentMessages = new HashMap<>();
+
         new MessageCommand(this);
         new ReplyCommand(this);
+        new BroadcastCommand(this);
+
+        Bukkit.getPluginManager().registerEvents(this, this);
     }
 
     public HashMap<UUID, UUID> getRecentMessages() {return recentMessages;}
 
-    private static final Pattern COLOR_PATTERN = Pattern.compile("(#[A-Fa-f0-9]{6})");
-    public static String translateHexCode(String string){
-        Matcher matcher = COLOR_PATTERN.matcher(string);
-        while (matcher.find()){
-            string = string.replace(matcher.group(), net.md_5.bungee.api.ChatColor.of(matcher.group()).toString());
-        }
-        return string;
-    }
+    @EventHandler(ignoreCancelled = true)
+    public void onChat(AsyncPlayerChatEvent e){e.setMessage(ChatUtil.translateHexCode(e.getMessage()));}
 }
