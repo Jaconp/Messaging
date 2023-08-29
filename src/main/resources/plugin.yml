@@ -1,7 +1,11 @@
 name: Messaging
-version: 1.0
+version: 1.1
 main: com.stickms.messaging.Messaging
 api-version: 1.20
 authors: [ Jaconp ]
 description: Allows players to privately message one another.
 website: stickms.com
+permissions:
+  messaging.broadcast:
+    description: Permission to use the broadcast command.
+    default: op
