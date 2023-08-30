@@ -29,7 +29,7 @@ public class BroadcastCommand extends CommandManager {
             sender.sendMessage(ChatColor.RED + "You do not have permission to broadcast messages.");
             return;
         }
-        if (Bukkit.getOnlinePlayers().size() == 1){
+        if (Bukkit.getOnlinePlayers().size() <= 1){
             sender.sendMessage(ChatColor.RED + "There is no one else on the server.");
             return;
         }
