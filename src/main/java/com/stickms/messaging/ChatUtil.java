@@ -15,7 +15,7 @@ public class ChatUtil {
 
     public static String getMessage(String[] args, int index){
         StringBuilder builder = new StringBuilder();
-        for (int i=index;i<args.length;i++) builder.append(args[i]);
+        for (int i=index;i<args.length;i++) builder.append(args[i]).append(" ");
         return builder.toString();
     }
 }
